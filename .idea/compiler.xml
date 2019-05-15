@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="USE_RELEASE_OPTION" value="false" />
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="rest-connector-web" />
+        <module name="SoapLab1-api" />
+        <module name="soap-rest-ear" />
+        <module name="SoapLab1-web" />
+        <module name="soap-rest-model-ejb" />
+        <module name="soap-api-ejb" />
+        <module name="SoapLab1-connector" />
+        <module name="rest-api-web" />
+        <module name="soap-connector-ejb" />
+        <module name="SoapLab1-ear" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8" />
+  </component>
+</project>
