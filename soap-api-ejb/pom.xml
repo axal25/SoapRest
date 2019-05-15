@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    JBoss, Home of Professional Open Source
+    Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+    contributors by the @authors tag. See the copyright.txt in the
+    distribution for a full listing of individual contributors.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <artifactId>SoapRest</artifactId>
+      <groupId>soap.rest</groupId>
+      <version>2.0-SNAPSHOT</version>
+   </parent>
+
+    <artifactId>soap-api-ejb</artifactId>
+    <packaging>ejb</packaging>
+
+    <name>SoapRest - Soap - Api - EJB - EJB Module</name>
+
+    <url>http://wildfly.org</url>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <distribution>repo</distribution>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+        </license>
+    </licenses>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>soap.rest</groupId>
+            <artifactId>soap-rest-model-ejb</artifactId>
+            <version>2.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Declare the APIs we depend on and need for compilation. All of
+            them are provided by JBoss WildFly -->
+
+        <!-- Import the EJB API, we use provided scope as the API is included in JBoss WildFly -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Import the CDI API, we use provided scope as the API is included in JBoss WildFly -->
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Import the JPA API, we use provided scope as the API is included in JBoss WildFly -->
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JSR-303 (Bean Validation) Implementation -->
+        <!-- Provides portable constraints such as @Email -->
+        <!-- Hibernate Validator is shipped in JBoss WildFly -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- PermitAll, RolesAllowed (javax.annotation.security.*) -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.annotation</groupId>
+            <artifactId>jboss-annotations-api_1.2_spec</artifactId>
+            <version>1.0.0.Final-redhat-1</version>
+        </dependency>
+
+        <!-- WebContext (org.jboss.ws.api.annotation.WebContext) -->
+        <dependency>
+            <groupId>org.jboss.ws</groupId>
+            <artifactId>jbossws-api</artifactId>
+            <version>1.1.2.Final</version>
+        </dependency>
+
+        <!-- SecurityDomain (org.jboss.annotation.security.SecurityDomain) -->
+        <dependency>
+            <groupId>jboss</groupId>
+            <artifactId>jboss-annotations-ejb3</artifactId>
+            <version>4.2.2.GA</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- wsimport - not needed -->
+        <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/build-helper-maven-plugin -->
+        <!--
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        -->
+
+        <!-- import com.sun.xml.ws.developer.StreamingDataHandler; -->
+        <!-- https://mvnrepository.com/artifact/com.sun.xml.ws/jaxws-rt -->
+<!--        <dependency>-->
+<!--            <groupId>com.sun.xml.ws</groupId>-->
+<!--            <artifactId>jaxws-rt</artifactId>-->
+<!--            <version>2.3.2</version>-->
+<!--            <type>pom</type>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+
+        <!-- wsgen -->
+        <!-- wsimport -->
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-tools</artifactId>
+            <version>2.2.5</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- wsconsume -->
+        <dependency>
+            <groupId>org.jboss.ws.cxf</groupId>
+            <artifactId>jbossws-cxf-client</artifactId>
+            <version>5.2.4.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+
+            <plugin>
+                <artifactId>maven-ejb-plugin</artifactId>
+                <version>${version.ejb.plugin}</version>
+                <configuration>
+                    <!-- Tell Maven we are using EJB 3.1 -->
+                    <ejbVersion>3.1</ejbVersion>
+                </configuration>
+            </plugin>
+
+            <!-- for wsimport -->
+            <!-- <basedir>home/jackdaeel/IdeaProjects/MavenProjects/SoapRest/soap-api-ejb</basedir> -->
+
+            <!-- wsimport - not needed -->
+            <!--
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>target/generated-sources</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            -->
+
+            <!-- wsgen -->
+            <!-- wsimport -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.5</version>
+                <executions>
+                    <execution>
+                        <id>1</id>
+                        <goals>
+                            <goal>wsgen</goal>
+                        </goals>
+                        <configuration>
+                            <!-- wsgen -->
+                            <genWsdl>true</genWsdl>
+                            <sei>soap.api.SingletonSessionBean</sei>
+                            <!-- SEI:
+                                Service endpoint interface
+                                Service endpoint implementation
+                                is a Java interface or class, that declares the methods that a client can invoke on the service.
+                                The client's method is annotated with the @WebMethod annotation which exposes the  method to web service clients.
+                            -->
+                            <servicename>{http://api/}SingletonSessionBeanWebService</servicename>
+                            <portname>{http://api/}SingletonSessionBeanWebService</portname>
+                            <!--<implServiceName>SingletonSessionBeanCHECK</implServiceName>-->
+                            <!--<implPortName>WebServiceEJBPortCHECK</implPortName>-->
+                            <!-- <wsdlLocation>src/main/resources/wsdl</wsdlLocation> -->
+                            <resourceDestDir>src/main/resources/wsdl/wsgen</resourceDestDir>
+                            <xnocompile>true</xnocompile>
+                            <keep>false</keep>
+                            <xdonotoverwrite>false</xdonotoverwrite>
+                            <verbose>true</verbose>
+
+                            <!-- wsimport -->
+                            <keep>true</keep>
+                            <sourceDestDir>target/generated-sources</sourceDestDir>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>2</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <!-- wsgen -->
+                            <xnocompile>true</xnocompile>
+                            <keep>false</keep>
+                            <!-- <verbose>true</verbose> -->
+
+                            <!-- wsimport -->
+                            <wsdlDirectory>src/main/resources/wsdl/download</wsdlDirectory>
+                            <wsdlFiles>SingletonSessionBeanWebService.wsdl</wsdlFiles>
+                            <implDestDir>src/main/resources/wsimport/</implDestDir>
+                            <!--
+                            <wsdlUrls>
+                                <wsdlUrl>http://localhost:8080/soap-api-ejb/SingletonSessionBeanWebService?wsdl</wsdlUrl>
+                            </wsdlUrls>
+                            -->
+                            <packageName>soap.api.wsimport.autogen</packageName>
+                            <keep>true</keep>
+                            <sourceDestDir>src/main/java</sourceDestDir>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- wsconsume -->
+            <plugin>
+                <groupId>org.jboss.ws.plugins</groupId>
+                <artifactId>jaxws-tools-maven-plugin</artifactId>
+                <version>1.2.0.Final</version>
+                <configuration>
+                    <endpointClass>soap.api.SingletonSessionBean</endpointClass>
+                    <!-- <wsdlLocation>
+			home/jackdaeel/IdeaProjects/MavenProjects/SoapRest/soap-api-ejb/src/main/resources/wsdl
+		    </wsdlLocation> -->
+
+                    <!-- fixes: Couldn't initiate class based on wsdl from home/... Initiazing base on soap.api.wsconsume.autogen...-->
+                    <wsdlLocation>http://localhost:8080/soap-api-ejb/SingletonSessionBeanWebService?wsdl</wsdlLocation>
+                    <wsdls>
+                        <wsdl>soap-api-ejb/src/main/resources/wsdl/download/SingletonSessionBeanWebService.wsdl</wsdl>
+                        <!-- <wsdl>http://localhost:8080/soap-api-ejb/SingletonSessionBeanWebService?wsdl</wsdl> -->
+                    </wsdls>
+                    <targetPackage>soap.api.wsconsume.autogen</targetPackage>
+                    <sourceDirectory>src/main/java/</sourceDirectory>
+                    <!-- <sourceDirectory>target/generated-sources</sourceDirectory> -->
+                    <!-- <outputDirectory>target/generated-output</outputDirectory> -->
+                    <!-- <verbose>true</verbose> -->
+                    <target>2.1</target>
+                    <!-- <extension>true</extension> -->
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsconsume</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <!-- The default profile skips all tests, though you can tune it
+                to run just unit tests based on a custom pattern -->
+            <!-- Seperate profiles are provided for running all tests, including
+                Arquillian tests that execute in the specified container -->
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${version.surefire.plugin}</version>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <!-- An optional Arquillian testing profile that executes tests
+                in your WildFly instance -->
+            <!-- This profile will start a new WildFly instance, and execute
+                the test, shutting it down when done -->
+            <!-- Run with: mvn clean test -Parq-wildfly-managed -->
+            <id>arq-wildfly-managed</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.wildfly</groupId>
+                    <artifactId>wildfly-arquillian-container-managed</artifactId>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <profile>
+            <!-- An optional Arquillian testing profile that executes tests
+                in a remote WildFly instance -->
+            <!-- Run with: mvn clean test -Parq-wildfly-remote -->
+            <id>arq-wildfly-remote</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.wildfly</groupId>
+                    <artifactId>wildfly-arquillian-container-remote</artifactId>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+
+    </profiles>
+
+</project>

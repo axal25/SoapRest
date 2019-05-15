@@ -1,0 +1,619 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.soap/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="WebServiceEJB_ServiceName" targetNamespace="http://api.soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://api.soap/" targetNamespace="student" version="1.0">
+
+  <xs:import namespace="http://api.soap/"/>
+
+  <xs:element name="student" type="ns1:student"/>
+
+
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:tns="http://api.soap/" xmlns:ns1="student" targetNamespace="http://api.soap/" version="1.0">
+
+  <xs:import namespace="student"/>
+
+  <xs:import namespace="http://www.w3.org/2005/05/xmlmime"/>
+  <xs:element name="addElementToListOfStudents_PermUser" type="tns:addElementToListOfStudents_PermUser"/>
+
+  <xs:element name="addElementToListOfStudents_PermUserResponse" type="tns:addElementToListOfStudents_PermUserResponse"/>
+
+  <xs:element name="getImage_AsByteArray2String_PermAll" type="tns:getImage_AsByteArray2String_PermAll"/>
+
+  <xs:element name="getImage_AsByteArray2String_PermAllResponse" type="tns:getImage_AsByteArray2String_PermAllResponse"/>
+
+  <xs:element name="getImage_AsByteArray_PermAll" type="tns:getImage_AsByteArray_PermAll"/>
+
+  <xs:element name="getImage_AsByteArray_PermAllResponse" type="tns:getImage_AsByteArray_PermAllResponse"/>
+
+  <xs:element name="getImage_AsImage2String_PermAll" type="tns:getImage_AsImage2String_PermAll"/>
+
+  <xs:element name="getImage_AsImage2String_PermAllResponse" type="tns:getImage_AsImage2String_PermAllResponse"/>
+
+  <xs:element name="getImage_AsImage_Binary_PermAll" type="tns:getImage_AsImage_Binary_PermAll"/>
+
+  <xs:element name="getImage_AsImage_Binary_PermAllResponse" type="tns:getImage_AsImage_Binary_PermAllResponse"/>
+
+  <xs:element name="getImage_AsImage_MimeJpg_PermAll" type="tns:getImage_AsImage_MimeJpg_PermAll"/>
+
+  <xs:element name="getImage_AsImage_MimeJpg_PermAllResponse" type="tns:getImage_AsImage_MimeJpg_PermAllResponse"/>
+
+  <xs:element name="getImage_MimeDataHandler2String_PermAll" type="tns:getImage_MimeDataHandler2String_PermAll"/>
+
+  <xs:element name="getImage_MimeDataHandler2String_PermAllResponse" type="tns:getImage_MimeDataHandler2String_PermAllResponse"/>
+
+  <xs:element name="getImage_MimeDataHandler_PermAll" type="tns:getImage_MimeDataHandler_PermAll"/>
+
+  <xs:element name="getImage_MimeDataHandler_PermAllResponse" type="tns:getImage_MimeDataHandler_PermAllResponse"/>
+
+  <xs:element name="getListOfStudentsFilteredByName_PermAll" type="tns:getListOfStudentsFilteredByName_PermAll"/>
+
+  <xs:element name="getListOfStudentsFilteredByName_PermAllResponse" type="tns:getListOfStudentsFilteredByName_PermAllResponse"/>
+
+  <xs:element name="getListOfStudents_PermUser" type="tns:getListOfStudents_PermUser"/>
+
+  <xs:element name="getListOfStudents_PermUserResponse" type="tns:getListOfStudents_PermUserResponse"/>
+
+  <xs:element name="getWrappedListOfStudents_PermSoapLab1" type="tns:getWrappedListOfStudents_PermSoapLab1"/>
+
+  <xs:element name="getWrappedListOfStudents_PermSoapLab1Response" type="tns:getWrappedListOfStudents_PermSoapLab1Response"/>
+
+  <xs:element name="getlistOfStudentsCourses_PermAll" type="tns:getlistOfStudentsCourses_PermAll"/>
+
+  <xs:element name="getlistOfStudentsCourses_PermAllResponse" type="tns:getlistOfStudentsCourses_PermAllResponse"/>
+
+  <xs:element name="isCreatedWeb_PermAdmin" type="tns:isCreatedWeb_PermAdmin"/>
+
+  <xs:element name="isCreatedWeb_PermAdminResponse" type="tns:isCreatedWeb_PermAdminResponse"/>
+
+  <xs:element name="myWebMethod_PermAdmin" type="tns:myWebMethod_PermAdmin"/>
+
+  <xs:element name="myWebMethod_PermAdminResponse" type="tns:myWebMethod_PermAdminResponse"/>
+
+  <xs:element name="removeElementFromListOfStudents_PermAll" type="tns:removeElementFromListOfStudents_PermAll"/>
+
+  <xs:element name="removeElementFromListOfStudents_PermAllResponse" type="tns:removeElementFromListOfStudents_PermAllResponse"/>
+
+  <xs:complexType name="removeElementFromListOfStudents_PermAll">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeElementFromListOfStudents_PermAllResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsImage2String_PermAll">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="imageName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsImage2String_PermAllResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsImage_Binary_PermAll">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="imageName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsImage_Binary_PermAllResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsByteArray2String_PermAll">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="imageName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsByteArray2String_PermAllResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_MimeDataHandler_PermAll">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="imageName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_MimeDataHandler_PermAllResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:base64Binary" xmime:expectedContentTypes="application/octet-stream"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getlistOfStudentsCourses_PermAll">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getlistOfStudentsCourses_PermAllResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:student"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="student">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="courseS">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="course" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="surname" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="myWebMethod_PermAdmin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="my_soap_param" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="myWebMethod_PermAdminResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsImage_MimeJpg_PermAll">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="imageName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsImage_MimeJpg_PermAllResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:base64Binary" xmime:expectedContentTypes="image/jpeg"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_MimeDataHandler2String_PermAll">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="imageName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_MimeDataHandler2String_PermAllResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="isCreatedWeb_PermAdmin">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="isCreatedWeb_PermAdminResponse">
+    <xs:sequence>
+      <xs:element name="isCreatedResult" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getWrappedListOfStudents_PermSoapLab1">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getWrappedListOfStudents_PermSoapLab1Response">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="Element" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addElementToListOfStudents_PermUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addElementToListOfStudents_PermUserResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getListOfStudentsFilteredByName_PermAll">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nameToFilterBy" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getListOfStudentsFilteredByName_PermAllResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="filteredElement" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsByteArray_PermAll">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="imageName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsByteArray_PermAllResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getListOfStudents_PermUser">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getListOfStudents_PermUserResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="removeElementFromListOfStudents_PermAll">
+    <wsdl:part element="tns:removeElementFromListOfStudents_PermAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getImage_AsImage2String_PermAll">
+    <wsdl:part element="tns:getImage_AsImage2String_PermAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getImage_MimeDataHandler2String_PermAllResponse">
+    <wsdl:part element="tns:getImage_MimeDataHandler2String_PermAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getImage_AsByteArray2String_PermAll">
+    <wsdl:part element="tns:getImage_AsByteArray2String_PermAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getImage_MimeDataHandler_PermAllResponse">
+    <wsdl:part element="tns:getImage_MimeDataHandler_PermAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="myWebMethod_PermAdmin">
+    <wsdl:part element="tns:myWebMethod_PermAdmin" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getListOfStudentsFilteredByName_PermAllResponse">
+    <wsdl:part element="tns:getListOfStudentsFilteredByName_PermAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getImage_MimeDataHandler2String_PermAll">
+    <wsdl:part element="tns:getImage_MimeDataHandler2String_PermAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getImage_AsImage_Binary_PermAllResponse">
+    <wsdl:part element="tns:getImage_AsImage_Binary_PermAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isCreatedWeb_PermAdmin">
+    <wsdl:part element="tns:isCreatedWeb_PermAdmin" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addElementToListOfStudents_PermUser">
+    <wsdl:part element="tns:addElementToListOfStudents_PermUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getListOfStudents_PermUserResponse">
+    <wsdl:part element="tns:getListOfStudents_PermUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getImage_AsImage2String_PermAllResponse">
+    <wsdl:part element="tns:getImage_AsImage2String_PermAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getImage_AsByteArray2String_PermAllResponse">
+    <wsdl:part element="tns:getImage_AsByteArray2String_PermAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getImage_AsImage_Binary_PermAll">
+    <wsdl:part element="tns:getImage_AsImage_Binary_PermAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addElementToListOfStudents_PermUserResponse">
+    <wsdl:part element="tns:addElementToListOfStudents_PermUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="myWebMethod_PermAdminResponse">
+    <wsdl:part element="tns:myWebMethod_PermAdminResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getlistOfStudentsCourses_PermAllResponse">
+    <wsdl:part element="tns:getlistOfStudentsCourses_PermAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getImage_AsByteArray_PermAllResponse">
+    <wsdl:part element="tns:getImage_AsByteArray_PermAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getImage_MimeDataHandler_PermAll">
+    <wsdl:part element="tns:getImage_MimeDataHandler_PermAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getlistOfStudentsCourses_PermAll">
+    <wsdl:part element="tns:getlistOfStudentsCourses_PermAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getWrappedListOfStudents_PermSoapLab1Response">
+    <wsdl:part element="tns:getWrappedListOfStudents_PermSoapLab1Response" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeElementFromListOfStudents_PermAllResponse">
+    <wsdl:part element="tns:removeElementFromListOfStudents_PermAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getImage_AsImage_MimeJpg_PermAll">
+    <wsdl:part element="tns:getImage_AsImage_MimeJpg_PermAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getImage_AsImage_MimeJpg_PermAllResponse">
+    <wsdl:part element="tns:getImage_AsImage_MimeJpg_PermAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getWrappedListOfStudents_PermSoapLab1">
+    <wsdl:part element="tns:getWrappedListOfStudents_PermSoapLab1" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getListOfStudentsFilteredByName_PermAll">
+    <wsdl:part element="tns:getListOfStudentsFilteredByName_PermAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getImage_AsByteArray_PermAll">
+    <wsdl:part element="tns:getImage_AsByteArray_PermAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getListOfStudents_PermUser">
+    <wsdl:part element="tns:getListOfStudents_PermUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isCreatedWeb_PermAdminResponse">
+    <wsdl:part element="tns:isCreatedWeb_PermAdminResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WebServiceEJB_Name">
+    <wsdl:operation name="removeElementFromListOfStudents_PermAll">
+      <wsdl:input message="tns:removeElementFromListOfStudents_PermAll" name="removeElementFromListOfStudents_PermAll">
+    </wsdl:input>
+      <wsdl:output message="tns:removeElementFromListOfStudents_PermAllResponse" name="removeElementFromListOfStudents_PermAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage_AsImage2String_PermAll">
+      <wsdl:input message="tns:getImage_AsImage2String_PermAll" name="getImage_AsImage2String_PermAll">
+    </wsdl:input>
+      <wsdl:output message="tns:getImage_AsImage2String_PermAllResponse" name="getImage_AsImage2String_PermAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage_AsImage_Binary_PermAll">
+      <wsdl:input message="tns:getImage_AsImage_Binary_PermAll" name="getImage_AsImage_Binary_PermAll">
+    </wsdl:input>
+      <wsdl:output message="tns:getImage_AsImage_Binary_PermAllResponse" name="getImage_AsImage_Binary_PermAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage_AsByteArray2String_PermAll">
+      <wsdl:input message="tns:getImage_AsByteArray2String_PermAll" name="getImage_AsByteArray2String_PermAll">
+    </wsdl:input>
+      <wsdl:output message="tns:getImage_AsByteArray2String_PermAllResponse" name="getImage_AsByteArray2String_PermAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage_MimeDataHandler_PermAll">
+      <wsdl:input message="tns:getImage_MimeDataHandler_PermAll" name="getImage_MimeDataHandler_PermAll">
+    </wsdl:input>
+      <wsdl:output message="tns:getImage_MimeDataHandler_PermAllResponse" name="getImage_MimeDataHandler_PermAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getlistOfStudentsCourses_PermAll">
+      <wsdl:input message="tns:getlistOfStudentsCourses_PermAll" name="getlistOfStudentsCourses_PermAll">
+    </wsdl:input>
+      <wsdl:output message="tns:getlistOfStudentsCourses_PermAllResponse" name="getlistOfStudentsCourses_PermAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="myWebMethod_PermAdmin">
+      <wsdl:input message="tns:myWebMethod_PermAdmin" name="myWebMethod_PermAdmin">
+    </wsdl:input>
+      <wsdl:output message="tns:myWebMethod_PermAdminResponse" name="myWebMethod_PermAdminResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage_AsImage_MimeJpg_PermAll">
+      <wsdl:input message="tns:getImage_AsImage_MimeJpg_PermAll" name="getImage_AsImage_MimeJpg_PermAll">
+    </wsdl:input>
+      <wsdl:output message="tns:getImage_AsImage_MimeJpg_PermAllResponse" name="getImage_AsImage_MimeJpg_PermAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage_MimeDataHandler2String_PermAll">
+      <wsdl:input message="tns:getImage_MimeDataHandler2String_PermAll" name="getImage_MimeDataHandler2String_PermAll">
+    </wsdl:input>
+      <wsdl:output message="tns:getImage_MimeDataHandler2String_PermAllResponse" name="getImage_MimeDataHandler2String_PermAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isCreatedWeb_PermAdmin">
+      <wsdl:input message="tns:isCreatedWeb_PermAdmin" name="isCreatedWeb_PermAdmin">
+    </wsdl:input>
+      <wsdl:output message="tns:isCreatedWeb_PermAdminResponse" name="isCreatedWeb_PermAdminResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWrappedListOfStudents_PermSoapLab1">
+      <wsdl:input message="tns:getWrappedListOfStudents_PermSoapLab1" name="getWrappedListOfStudents_PermSoapLab1">
+    </wsdl:input>
+      <wsdl:output message="tns:getWrappedListOfStudents_PermSoapLab1Response" name="getWrappedListOfStudents_PermSoapLab1Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addElementToListOfStudents_PermUser">
+      <wsdl:input message="tns:addElementToListOfStudents_PermUser" name="addElementToListOfStudents_PermUser">
+    </wsdl:input>
+      <wsdl:output message="tns:addElementToListOfStudents_PermUserResponse" name="addElementToListOfStudents_PermUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getListOfStudentsFilteredByName_PermAll">
+      <wsdl:input message="tns:getListOfStudentsFilteredByName_PermAll" name="getListOfStudentsFilteredByName_PermAll">
+    </wsdl:input>
+      <wsdl:output message="tns:getListOfStudentsFilteredByName_PermAllResponse" name="getListOfStudentsFilteredByName_PermAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage_AsByteArray_PermAll">
+      <wsdl:input message="tns:getImage_AsByteArray_PermAll" name="getImage_AsByteArray_PermAll">
+    </wsdl:input>
+      <wsdl:output message="tns:getImage_AsByteArray_PermAllResponse" name="getImage_AsByteArray_PermAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getListOfStudents_PermUser">
+      <wsdl:input message="tns:getListOfStudents_PermUser" name="getListOfStudents_PermUser">
+    </wsdl:input>
+      <wsdl:output message="tns:getListOfStudents_PermUserResponse" name="getListOfStudents_PermUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceEJB_ServiceNameSoapBinding" type="tns:WebServiceEJB_Name">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="removeElementFromListOfStudents_PermAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeElementFromListOfStudents_PermAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeElementFromListOfStudents_PermAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage_AsImage2String_PermAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getImage_AsImage2String_PermAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getImage_AsImage2String_PermAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage_AsImage_Binary_PermAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getImage_AsImage_Binary_PermAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getImage_AsImage_Binary_PermAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage_AsByteArray2String_PermAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getImage_AsByteArray2String_PermAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getImage_AsByteArray2String_PermAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage_MimeDataHandler_PermAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getImage_MimeDataHandler_PermAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getImage_MimeDataHandler_PermAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getlistOfStudentsCourses_PermAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getlistOfStudentsCourses_PermAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getlistOfStudentsCourses_PermAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="myWebMethod_PermAdmin">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="myWebMethod_PermAdmin">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="myWebMethod_PermAdminResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage_AsImage_MimeJpg_PermAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getImage_AsImage_MimeJpg_PermAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getImage_AsImage_MimeJpg_PermAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage_MimeDataHandler2String_PermAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getImage_MimeDataHandler2String_PermAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getImage_MimeDataHandler2String_PermAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isCreatedWeb_PermAdmin">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="isCreatedWeb_PermAdmin">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isCreatedWeb_PermAdminResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWrappedListOfStudents_PermSoapLab1">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getWrappedListOfStudents_PermSoapLab1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getWrappedListOfStudents_PermSoapLab1Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addElementToListOfStudents_PermUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addElementToListOfStudents_PermUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addElementToListOfStudents_PermUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getListOfStudentsFilteredByName_PermAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getListOfStudentsFilteredByName_PermAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getListOfStudentsFilteredByName_PermAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage_AsByteArray_PermAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getImage_AsByteArray_PermAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getImage_AsByteArray_PermAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getListOfStudents_PermUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getListOfStudents_PermUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getListOfStudents_PermUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceEJB_ServiceName">
+    <wsdl:port binding="tns:WebServiceEJB_ServiceNameSoapBinding" name="WebServiceEJB_PortName">
+      <soap:address location="http://localhost:8080/soap-api-ejb/SingletonSessionBeanWebService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

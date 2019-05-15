@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="student" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://api.soap/">
+
+  <xs:import namespace="http://api.soap/" schemaLocation="WebServiceEJBName_schema2.xsd"/>
+
+  <xs:element name="student" type="ns1:student"/>
+
+</xs:schema>
+

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://api.soap/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:tns="http://api.soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="student">
+
+  <xs:import namespace="student" schemaLocation="WebServiceEJBName_schema1.xsd"/>
+
+  <xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="http://www.w3.org/2005/05/xmlmime"/>
+  <xs:element name="addElementToListOfStudents_PermUser" type="tns:addElementToListOfStudents_PermUser"/>
+
+  <xs:element name="addElementToListOfStudents_PermUserResponse" type="tns:addElementToListOfStudents_PermUserResponse"/>
+
+  <xs:element name="getImage_AsByteArray2String_PermAll" type="tns:getImage_AsByteArray2String_PermAll"/>
+
+  <xs:element name="getImage_AsByteArray2String_PermAllResponse" type="tns:getImage_AsByteArray2String_PermAllResponse"/>
+
+  <xs:element name="getImage_AsByteArray_PermAll" type="tns:getImage_AsByteArray_PermAll"/>
+
+  <xs:element name="getImage_AsByteArray_PermAllResponse" type="tns:getImage_AsByteArray_PermAllResponse"/>
+
+  <xs:element name="getImage_AsImage2String_PermAll" type="tns:getImage_AsImage2String_PermAll"/>
+
+  <xs:element name="getImage_AsImage2String_PermAllResponse" type="tns:getImage_AsImage2String_PermAllResponse"/>
+
+  <xs:element name="getImage_AsImage_Binary_PermAll" type="tns:getImage_AsImage_Binary_PermAll"/>
+
+  <xs:element name="getImage_AsImage_Binary_PermAllResponse" type="tns:getImage_AsImage_Binary_PermAllResponse"/>
+
+  <xs:element name="getImage_AsImage_MimeJpg_PermAll" type="tns:getImage_AsImage_MimeJpg_PermAll"/>
+
+  <xs:element name="getImage_AsImage_MimeJpg_PermAllResponse" type="tns:getImage_AsImage_MimeJpg_PermAllResponse"/>
+
+  <xs:element name="getImage_MimeDataHandler2String_PermAll" type="tns:getImage_MimeDataHandler2String_PermAll"/>
+
+  <xs:element name="getImage_MimeDataHandler2String_PermAllResponse" type="tns:getImage_MimeDataHandler2String_PermAllResponse"/>
+
+  <xs:element name="getImage_MimeDataHandler_PermAll" type="tns:getImage_MimeDataHandler_PermAll"/>
+
+  <xs:element name="getImage_MimeDataHandler_PermAllResponse" type="tns:getImage_MimeDataHandler_PermAllResponse"/>
+
+  <xs:element name="getListOfStudentsFilteredByName_PermAll" type="tns:getListOfStudentsFilteredByName_PermAll"/>
+
+  <xs:element name="getListOfStudentsFilteredByName_PermAllResponse" type="tns:getListOfStudentsFilteredByName_PermAllResponse"/>
+
+  <xs:element name="getListOfStudents_PermUser" type="tns:getListOfStudents_PermUser"/>
+
+  <xs:element name="getListOfStudents_PermUserResponse" type="tns:getListOfStudents_PermUserResponse"/>
+
+  <xs:element name="getWrappedListOfStudents_PermSoapLab1" type="tns:getWrappedListOfStudents_PermSoapLab1"/>
+
+  <xs:element name="getWrappedListOfStudents_PermSoapLab1Response" type="tns:getWrappedListOfStudents_PermSoapLab1Response"/>
+
+  <xs:element name="getlistOfStudentsCourses_PermAll" type="tns:getlistOfStudentsCourses_PermAll"/>
+
+  <xs:element name="getlistOfStudentsCourses_PermAllResponse" type="tns:getlistOfStudentsCourses_PermAllResponse"/>
+
+  <xs:element name="isCreatedWeb_PermAdmin" type="tns:isCreatedWeb_PermAdmin"/>
+
+  <xs:element name="isCreatedWeb_PermAdminResponse" type="tns:isCreatedWeb_PermAdminResponse"/>
+
+  <xs:element name="myWebMethod_PermAdmin" type="tns:myWebMethod_PermAdmin"/>
+
+  <xs:element name="myWebMethod_PermAdminResponse" type="tns:myWebMethod_PermAdminResponse"/>
+
+  <xs:element name="removeElementFromListOfStudents_PermAll" type="tns:removeElementFromListOfStudents_PermAll"/>
+
+  <xs:element name="removeElementFromListOfStudents_PermAllResponse" type="tns:removeElementFromListOfStudents_PermAllResponse"/>
+
+  <xs:complexType name="getWrappedListOfStudents_PermSoapLab1">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getWrappedListOfStudents_PermSoapLab1Response">
+    <xs:sequence>
+      <xs:element name="Element" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="isCreatedWeb_PermAdmin">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="isCreatedWeb_PermAdminResponse">
+    <xs:sequence>
+      <xs:element name="isCreatedResult" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsByteArray_PermAll">
+    <xs:sequence>
+      <xs:element name="imageName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsByteArray_PermAllResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:base64Binary" nillable="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addElementToListOfStudents_PermUser">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addElementToListOfStudents_PermUserResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getListOfStudentsFilteredByName_PermAll">
+    <xs:sequence>
+      <xs:element name="nameToFilterBy" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getListOfStudentsFilteredByName_PermAllResponse">
+    <xs:sequence>
+      <xs:element name="filteredElement" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getListOfStudents_PermUser">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getListOfStudents_PermUserResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsImage_MimeJpg_PermAll">
+    <xs:sequence>
+      <xs:element name="imageName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsImage_MimeJpg_PermAllResponse">
+    <xs:sequence>
+      <xs:element name="return" xmime:expectedContentTypes="image/jpeg" type="xs:base64Binary" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_MimeDataHandler2String_PermAll">
+    <xs:sequence>
+      <xs:element name="imageName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_MimeDataHandler2String_PermAllResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsByteArray2String_PermAll">
+    <xs:sequence>
+      <xs:element name="imageName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsByteArray2String_PermAllResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getlistOfStudentsCourses_PermAll">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getlistOfStudentsCourses_PermAllResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:student" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="student">
+    <xs:sequence>
+      <xs:element name="courseS" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="course" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="surname" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_MimeDataHandler_PermAll">
+    <xs:sequence>
+      <xs:element name="imageName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_MimeDataHandler_PermAllResponse">
+    <xs:sequence>
+      <xs:element name="return" xmime:expectedContentTypes="application/octet-stream" type="xs:base64Binary" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="myWebMethod_PermAdmin">
+    <xs:sequence>
+      <xs:element name="my_soap_param" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="myWebMethod_PermAdminResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsImage2String_PermAll">
+    <xs:sequence>
+      <xs:element name="imageName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsImage2String_PermAllResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeElementFromListOfStudents_PermAll">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeElementFromListOfStudents_PermAllResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsImage_Binary_PermAll">
+    <xs:sequence>
+      <xs:element name="imageName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImage_AsImage_Binary_PermAllResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:base64Binary" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
