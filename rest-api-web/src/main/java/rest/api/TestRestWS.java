@@ -167,25 +167,25 @@ public class TestRestWS {
         return response;
     }
 
-    @GET
-    @Path("/")
-    @Produces("text/html")
-    public Response getDefault() {
-        String functionName = "getHelloWorldMessage()";
-        String wrappedPaths = wrapInAHref( paths );
-        String response = "<h1>" + className + " >>> " + functionName + " >> Paths: </h1>\n\r" + wrappedPaths;
-        response = wrapInHtml( "title: getDefault", response );
-
-        return Response.status(200).header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
-                .header("Access-Control-Allow-Credentials", "true")
-                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
-                .entity( response )
-                .build();
-        /*
-        return Response.ok( response ).build();
-        */
-    }
+//    @GET
+//    @Path("/")
+//    @Produces("text/html")
+//    public Response getDefault() {
+//        String functionName = "getHelloWorldMessage()";
+//        String wrappedPaths = wrapInAHref( paths );
+//        String response = "<h1>" + className + " >>> " + functionName + " >> Paths: </h1>\n\r" + wrappedPaths;
+//        response = wrapInHtml( "title: getDefault", response );
+//
+//        return Response.status(200).header("Access-Control-Allow-Origin", "*")
+//                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+//                .header("Access-Control-Allow-Credentials", "true")
+//                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+//                .entity( response )
+//                .build();
+//        /*
+//        return Response.ok( response ).build();
+//        */
+//    }
 
     @GET
     @Path("/getHelloWorld/{pathName}")

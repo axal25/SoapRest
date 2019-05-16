@@ -35,7 +35,7 @@ public class TestRestApp extends Application {
         beanConfig.setVersion( className + " >>> " + functionName + " version: 0.99.99 beta" );
         beanConfig.setSchemes(   new String[]{ "http" }   );
         beanConfig.setHost( "localhost:8080" );
-        beanConfig.setBasePath( "/rest-api-web/TestRestWS/TestRestApp/" );
+        beanConfig.setBasePath( "/rest-api-web/TestRestApp/TestRestWS/" );
         beanConfig.setResourcePackage( TestRestWS.class.getPackage().getName() ) ;
         beanConfig.setTitle( "RESTEasy, Swagger and Swagger UI Example" );
         beanConfig.setDescription("Sample RESTful API built using RESTEasy, Swagger and Swagger UI");
