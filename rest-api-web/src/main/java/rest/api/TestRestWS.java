@@ -40,6 +40,8 @@ import java.util.stream.Collectors;
  *      ^ Wildfly Swarm Plugin
  * 8)   https://codecouple.pl/2017/01/07/9-spring-boot-swagger2-dokumentujemy-api/
  *      ^ presentations' "source"
+ * 9)   https://stackoverflow.com/questions/49598003/configure-swagger-ui-with-maven
+ *      ^ maven auto download swagger-ui and replace url
  */
 @Path("/TestRestWS")
 @Api(value="/TestRestWS", description = "Test Rest WebService - deprected description")
