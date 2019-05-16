@@ -27,12 +27,6 @@
   <message name="getWrappedListOfStudents_PermSoapLab1Response">
     <part name="parameters" element="tns:getWrappedListOfStudents_PermSoapLab1Response"/>
   </message>
-  <message name="getlistOfStudentsCourses_PermAll">
-    <part name="parameters" element="tns:getlistOfStudentsCourses_PermAll"/>
-  </message>
-  <message name="getlistOfStudentsCourses_PermAllResponse">
-    <part name="parameters" element="tns:getlistOfStudentsCourses_PermAllResponse"/>
-  </message>
   <message name="addElementToListOfStudents_PermUser">
     <part name="parameters" element="tns:addElementToListOfStudents_PermUser"/>
   </message>
@@ -50,6 +44,12 @@
   </message>
   <message name="getListOfStudentsFilteredByName_PermAllResponse">
     <part name="parameters" element="tns:getListOfStudentsFilteredByName_PermAllResponse"/>
+  </message>
+  <message name="getlistOfStudentsCourses_PermAll">
+    <part name="parameters" element="tns:getlistOfStudentsCourses_PermAll"/>
+  </message>
+  <message name="getlistOfStudentsCourses_PermAllResponse">
+    <part name="parameters" element="tns:getlistOfStudentsCourses_PermAllResponse"/>
   </message>
   <message name="isCreatedWeb_PermAdmin">
     <part name="parameters" element="tns:isCreatedWeb_PermAdmin"/>
@@ -112,21 +112,21 @@
       <input ns5:Action="http://api.soap/WebServiceEJB_Name/getWrappedListOfStudents_PermSoapLab1Request" message="tns:getWrappedListOfStudents_PermSoapLab1" xmlns:ns5="http://www.w3.org/2007/05/addressing/metadata"/>
       <output ns6:Action="http://api.soap/WebServiceEJB_Name/getWrappedListOfStudents_PermSoapLab1Response" message="tns:getWrappedListOfStudents_PermSoapLab1Response" xmlns:ns6="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
-    <operation name="getlistOfStudentsCourses_PermAll">
-      <input ns7:Action="http://api.soap/WebServiceEJB_Name/getlistOfStudentsCourses_PermAllRequest" message="tns:getlistOfStudentsCourses_PermAll" xmlns:ns7="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns8:Action="http://api.soap/WebServiceEJB_Name/getlistOfStudentsCourses_PermAllResponse" message="tns:getlistOfStudentsCourses_PermAllResponse" xmlns:ns8="http://www.w3.org/2007/05/addressing/metadata"/>
-    </operation>
     <operation name="addElementToListOfStudents_PermUser">
-      <input ns9:Action="http://api.soap/WebServiceEJB_Name/addElementToListOfStudents_PermUserRequest" message="tns:addElementToListOfStudents_PermUser" xmlns:ns9="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns10:Action="http://api.soap/WebServiceEJB_Name/addElementToListOfStudents_PermUserResponse" message="tns:addElementToListOfStudents_PermUserResponse" xmlns:ns10="http://www.w3.org/2007/05/addressing/metadata"/>
+      <input ns7:Action="http://api.soap/WebServiceEJB_Name/addElementToListOfStudents_PermUserRequest" message="tns:addElementToListOfStudents_PermUser" xmlns:ns7="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns8:Action="http://api.soap/WebServiceEJB_Name/addElementToListOfStudents_PermUserResponse" message="tns:addElementToListOfStudents_PermUserResponse" xmlns:ns8="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
     <operation name="removeElementFromListOfStudents_PermAll">
-      <input ns11:Action="http://api.soap/WebServiceEJB_Name/removeElementFromListOfStudents_PermAllRequest" message="tns:removeElementFromListOfStudents_PermAll" xmlns:ns11="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns12:Action="http://api.soap/WebServiceEJB_Name/removeElementFromListOfStudents_PermAllResponse" message="tns:removeElementFromListOfStudents_PermAllResponse" xmlns:ns12="http://www.w3.org/2007/05/addressing/metadata"/>
+      <input ns9:Action="http://api.soap/WebServiceEJB_Name/removeElementFromListOfStudents_PermAllRequest" message="tns:removeElementFromListOfStudents_PermAll" xmlns:ns9="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns10:Action="http://api.soap/WebServiceEJB_Name/removeElementFromListOfStudents_PermAllResponse" message="tns:removeElementFromListOfStudents_PermAllResponse" xmlns:ns10="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
     <operation name="getListOfStudentsFilteredByName_PermAll">
-      <input ns13:Action="http://api.soap/WebServiceEJB_Name/getListOfStudentsFilteredByName_PermAllRequest" message="tns:getListOfStudentsFilteredByName_PermAll" xmlns:ns13="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns14:Action="http://api.soap/WebServiceEJB_Name/getListOfStudentsFilteredByName_PermAllResponse" message="tns:getListOfStudentsFilteredByName_PermAllResponse" xmlns:ns14="http://www.w3.org/2007/05/addressing/metadata"/>
+      <input ns11:Action="http://api.soap/WebServiceEJB_Name/getListOfStudentsFilteredByName_PermAllRequest" message="tns:getListOfStudentsFilteredByName_PermAll" xmlns:ns11="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns12:Action="http://api.soap/WebServiceEJB_Name/getListOfStudentsFilteredByName_PermAllResponse" message="tns:getListOfStudentsFilteredByName_PermAllResponse" xmlns:ns12="http://www.w3.org/2007/05/addressing/metadata"/>
+    </operation>
+    <operation name="getlistOfStudentsCourses_PermAll">
+      <input ns13:Action="http://api.soap/WebServiceEJB_Name/getlistOfStudentsCourses_PermAllRequest" message="tns:getlistOfStudentsCourses_PermAll" xmlns:ns13="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns14:Action="http://api.soap/WebServiceEJB_Name/getlistOfStudentsCourses_PermAllResponse" message="tns:getlistOfStudentsCourses_PermAllResponse" xmlns:ns14="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
     <operation name="isCreatedWeb_PermAdmin">
       <input ns15:Action="http://api.soap/WebServiceEJB_Name/isCreatedWeb_PermAdminRequest" message="tns:isCreatedWeb_PermAdmin" xmlns:ns15="http://www.w3.org/2007/05/addressing/metadata"/>

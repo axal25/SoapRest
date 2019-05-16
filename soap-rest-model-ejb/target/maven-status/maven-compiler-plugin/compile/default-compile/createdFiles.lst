@@ -1,5 +1,0 @@
-model/rest/MessageCollection.class
-model/soap/Student.class
-model/rest/TestRestStudent.class
-model/rest/AtLeastOneParamReqException.class
-model/rest/BadMatchRegExpException.class
