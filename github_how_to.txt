@@ -1,7 +1,13 @@
-git clone https://github.com/axal25/Wildfly_SOA_Presentation_LateX
-copy contents from Wildfly_SOA_Presentation_LateX/ 
-to local_Wildfly_SOA_Presentation_LateX/
-cd local_Wildfly_SOA_Presentation_LateX
+~/Studia/Semestr 6/SOA/REST/Github$ git clone https://github.com/axal25/SoapRest/
+cd SoapRest
+		that's SoapRest local repository
+ls -la
+	drwxr-xr-x 11 jackdaeel jackdaeel  4096 cze 10 17:41 .
+	drwxr-xr-x  3 jackdaeel jackdaeel  4096 cze 10 17:40 ..
+	drwxr-xr-x  2 jackdaeel jackdaeel  4096 cze 10 17:41 [...]
+	drwxr-xr-x  8 jackdaeel jackdaeel  4096 cze 10 17:41 .git
+delete SoapRest(local-repo) contents but the .git folder
+copy SoapRest(NewerVersion) to SoapRest(local-repo)
 git add *
 git config --global user.email login@gmail.com
 git commit -m "first commit from terminal"
@@ -9,3 +15,4 @@ git remote add origin https://github.com/user_name/repository_name
 git remote -v
 git push -u origin master
 git pull origin master
+
