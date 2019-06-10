@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package proto.student;
+
+option java_package = "rest.api.proto";
+option java_outer_classname = "ProtoBuffImpl";
+
+message MyProtoBuff {
+        string className = 1;
+        string name = 2;
+        int32 age = 3;
+        // string[] courses = 4;
+        repeated string course = 5;
+}

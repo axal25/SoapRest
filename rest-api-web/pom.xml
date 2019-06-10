@@ -38,25 +38,66 @@
          <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
       </license>
    </licenses>
+   <!-- edited -->
+   <properties>
+      <resteasy.version>3.7.0.Final</resteasy.version>
+       <swagger-ui.version>3.22.2</swagger-ui.version>
+   </properties>
 
    <dependencies>
-
       <!-- Dependency on the EJB module so we can use it's services if needed -->
       <dependency>
          <groupId>soap.rest</groupId>
-         <artifactId>soap-api-ejb</artifactId>
-         <type>ejb</type>
+         <artifactId>soap-rest-model-ejb</artifactId>
+          <version>${project.version}</version>
+          <type>ejb</type>
          <scope>provided</scope>
       </dependency>
 
       <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss WildFly -->
+      <!-- edited -->
+      <!-- updated version on wildfly (inside modules) -->
+
+      <!-- resteasy -->
+      <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jaxrs -->
       <dependency>
          <groupId>org.jboss.resteasy</groupId>
-         <artifactId>jaxrs-api</artifactId>
+         <artifactId>resteasy-jaxrs</artifactId>
+         <version>${resteasy.version}</version>
          <scope>provided</scope>
       </dependency>
 
-      <!-- Import the CDI API, we use provided scope as the API is included in JBoss WildFly -->
+       <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-multipart-provider -->
+       <dependency>
+           <groupId>org.jboss.resteasy</groupId>
+           <artifactId>resteasy-multipart-provider</artifactId>
+           <version>${resteasy.version}</version>
+           <scope>compile</scope>
+           <exclusions>
+               <exclusion>
+                   <groupId>org.glassfish.jaxb</groupId>
+                   <artifactId>jaxb-runtime</artifactId>
+               </exclusion>
+           </exclusions>
+       </dependency>
+
+       <!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
+       <dependency>
+           <groupId>org.glassfish.jaxb</groupId>
+           <artifactId>jaxb-runtime</artifactId>
+           <version>2.3.1</version>
+           <scope>compile</scope>
+       </dependency>
+
+       <!-- optional, good for handle I/O task -->
+       <dependency>
+           <groupId>commons-io</groupId>
+           <artifactId>commons-io</artifactId>
+           <version>2.4</version>
+           <scope>compile</scope>
+       </dependency>
+
+       <!-- Import the CDI API, we use provided scope as the API is included in JBoss WildFly -->
       <dependency>
          <groupId>javax.enterprise</groupId>
          <artifactId>cdi-api</artifactId>
@@ -77,12 +118,96 @@
          <scope>provided</scope>
       </dependency>
 
+       <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jackson2-provider -->
+       <dependency>
+           <groupId>org.jboss.resteasy</groupId>
+           <artifactId>resteasy-jackson2-provider</artifactId>
+           <version>${resteasy.version}</version>
+           <scope>provided</scope>
+       </dependency>
+
+       <!--Jackson-->
+       <!--import com.fasterxml.jackson.databind.ObjectMapper;-->
+       <dependency>
+           <groupId>com.fasterxml.jackson.core</groupId>
+           <artifactId>jackson-databind</artifactId>
+           <version>2.9.8</version>
+           <scope>provided</scope>
+       </dependency>
+
+       <dependency>
+           <groupId>com.fasterxml.jackson.core</groupId>
+           <artifactId>jackson-core</artifactId>
+           <version>2.9.8</version>
+           <scope>provided</scope>
+       </dependency>
+
+       <dependency>
+           <groupId>com.fasterxml.jackson.core</groupId>
+           <artifactId>jackson-annotations</artifactId>
+           <version>2.9.8</version>
+           <scope>provided</scope>
+       </dependency>
+
+      <!-- DEPENDENCY CONFLICT - with: -->
+      <!-- [bad one] jsr311-api -->
+      <!-- vs. -->
+      <!-- [good one] org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.1_spec:1.0.2.Final -->
+
+      <!-- https://mvnrepository.com/artifact/io.swagger/swagger-jaxrs -->
+      <dependency>
+         <groupId>io.swagger</groupId>
+         <artifactId>swagger-jaxrs</artifactId>
+         <version>1.5.16</version>
+         <scope>provided</scope>
+         <exclusions>
+            <exclusion>
+               <groupId>javax.ws.rs</groupId>
+               <artifactId>jsr311-api</artifactId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/com.pakulov.jersey.media/jersey-media-protobuf -->
+      <dependency>
+         <groupId>com.pakulov.jersey.media</groupId>
+         <artifactId>jersey-media-protobuf</artifactId>
+         <version>0.1.0</version>
+         <scope>compile</scope> <!-- has to be compile -->
+      </dependency>
+
+       <!-- https://mvnrepository.com/artifact/com.google.code.maven-replacer-plugin/maven-replacer-plugin -->
+       <dependency>
+           <groupId>com.google.code.maven-replacer-plugin</groupId>
+           <artifactId>maven-replacer-plugin</artifactId>
+           <version>1.3</version>
+           <scope>compile</scope>
+       </dependency>
+
+       <!-- authentication -->
+       <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+       <dependency>
+           <groupId>io.jsonwebtoken</groupId>
+           <artifactId>jjwt</artifactId>
+           <version>0.9.0</version>
+           <scope>compile</scope>
+       </dependency>
+
+       <!-- https://mvnrepository.com/artifact/javax.transaction/javax.transaction-api -->
+       <dependency>
+           <groupId>javax.transaction</groupId>
+           <artifactId>javax.transaction-api</artifactId>
+           <version>1.2</version>
+           <scope>compile</scope>
+       </dependency>
+
        <!-- JSR-303 (Bean Validation) Implementation -->
        <!-- Provides portable constraints such as @Email -->
        <!-- Hibernate Validator is shipped in JBoss WildFly -->
        <dependency>
            <groupId>org.hibernate</groupId>
            <artifactId>hibernate-validator</artifactId>
+           <version>5.1.3.Final</version>
            <scope>provided</scope>
            <exclusions>
                <exclusion>
@@ -92,69 +217,147 @@
            </exclusions>
        </dependency>
 
-      <!-- resteasy -->
-      <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jaxrs -->
-      <dependency>
-         <groupId>org.jboss.resteasy</groupId>
-         <artifactId>resteasy-jaxrs</artifactId>
-         <version>3.6.3.SP1</version>
-         <scope>provided</scope>
-      </dependency>
+       <!-- validation -->
 
-      <!-- import com.fasterxml.jackson.databind.ObjectMapper; -->
-      <dependency>
-         <groupId>com.fasterxml.jackson.core</groupId>
-         <artifactId>jackson-databind</artifactId>
-         <version>2.9.8.redhat-00004</version>
-         <scope>compile</scope>
-      </dependency>
+       <!-- method #2 -->
+       <!-- source: https://stackoverflow.com/questions/30956760/what-is-the-proper-way-to-validate-requests-with-resteasy -->
+       <!-- source: https://www.wangler.io/blog/2016/resteasy-input-validation.html -->
 
-      <!-- Springfox - Swagger -->
-      <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
-<!--      <dependency>-->
-<!--         <groupId>io.springfox</groupId>-->
-<!--         <artifactId>springfox-swagger2</artifactId>-->
-<!--         <version>2.9.2</version>-->
-<!--         <scope>compile</scope>-->
-<!--      </dependency>-->
+       <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-validator-provider-11 -->
+       <dependency>
+           <groupId>org.jboss.resteasy</groupId>
+           <artifactId>resteasy-validator-provider-11</artifactId>
+           <version>3.6.3.Final</version>
+           <scope>compile</scope>
+       </dependency>
 
-      <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
-<!--      <dependency>-->
-<!--         <groupId>io.springfox</groupId>-->
-<!--         <artifactId>springfox-swagger-ui</artifactId>-->
-<!--         <version>2.9.2</version>-->
-<!--         <scope>compile</scope>-->
-<!--      </dependency>-->
+       <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+       <dependency>
+           <groupId>javax.validation</groupId>
+           <artifactId>validation-api</artifactId>
+           <version>2.0.1.Final</version>
+           <scope>compile</scope>
+       </dependency>
 
-      <!-- https://mvnrepository.com/artifact/io.swagger/swagger-jaxrs -->
-      <dependency>
-         <groupId>io.swagger</groupId>
-         <artifactId>swagger-jaxrs</artifactId>
-         <version>1.5.16</version>
-      </dependency>
+       <!-- protocol buffer -->
+       <!-- source #1: https://www.baeldung.com/spring-rest-api-with-protocol-buffers -->
+       <!-- source #2: https://dzone.com/articles/protobuf-for-lazy-java-coders -->
+       <!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+       <dependency>
+           <groupId>com.google.protobuf</groupId>
+           <artifactId>protobuf-java</artifactId>
+           <version>3.7.0</version>
+           <scope>compile</scope>
+       </dependency>
 
-      <!-- https://mvnrepository.com/artifact/io.swagger/swagger-jersey2-jaxrs -->
-      <dependency>
-         <groupId>io.swagger</groupId>
-         <artifactId>swagger-jersey2-jaxrs</artifactId>
-         <version>1.5.16</version>
-      </dependency>
-
+       <!-- https://mvnrepository.com/artifact/com.github.os72/protoc-jar-maven-plugin -->
+       <dependency>
+           <groupId>com.github.os72</groupId>
+           <artifactId>protoc-jar-maven-plugin</artifactId>
+           <version>3.5.1.1</version>
+           <scope>compile</scope>
+       </dependency>
 
    </dependencies>
 
    <build>
       <finalName>${project.artifactId}</finalName>
       <plugins>
+
          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
             <version>${version.war.plugin}</version>
             <configuration>
                <!-- Java EE 7 doesn't require web.xml, Maven needs to catch up! -->
                <failOnMissingWebXml>false</failOnMissingWebXml>
+                <!-- so rest-connector-web can use classes -->
+                <attachClasses>true</attachClasses>
+                <classesClassifier>classes</classesClassifier>
+
+                <!-- swagger ui config -->
+                <warName>${project.build.finalName}</warName>
+                <webappDirectory>${basedir}/target/${project.build.finalName}</webappDirectory>
+                <webResources>
+                    <webResource>
+                        <directory>${project.build.directory}/swagger-unpacked/swagger-ui-${swagger-ui.version}/dist</directory>
+                        <targetPath>/</targetPath>
+                    </webResource>
+                </webResources>
             </configuration>
          </plugin>
+
+          <plugin>
+              <groupId>com.googlecode.maven-download-plugin</groupId>
+              <artifactId>download-maven-plugin</artifactId>
+              <version>1.4.0</version>
+              <executions>
+                  <execution>
+                      <id>swagger-ui</id>
+                      <phase>prepare-package</phase>
+                      <goals>
+                          <goal>wget</goal>
+                      </goals>
+                      <configuration>
+                          <url>https://github.com/swagger-api/swagger-ui/archive/v${swagger-ui.version}.tar.gz</url>
+                          <unpack>true</unpack>
+                          <outputDirectory>${project.build.directory}/swagger-unpacked</outputDirectory>
+                      </configuration>
+                  </execution>
+              </executions>
+          </plugin>
+
+          <plugin>
+              <groupId>com.google.code.maven-replacer-plugin</groupId>
+              <artifactId>maven-replacer-plugin</artifactId>
+              <version>1.3</version>
+              <executions>
+                  <execution>
+                      <phase>prepare-package</phase>
+                      <goals>
+                          <goal>replace</goal>
+                      </goals>
+                  </execution>
+              </executions>
+              <configuration>
+                  <file>${basedir}/target/swagger-unpacked/swagger-ui-${swagger-ui.version}/dist/index.html</file>
+<!--                  <file>${project.build.directory}/swagger-ui/META-INF/resources/webjars/swagger-ui/${swagger-ui.version}/index.html</file>-->
+                  <replacements>
+                      <replacement>
+                          <token>"https://petstore.swagger.io/v2/swagger.json"</token>
+                          <value>location.protocol + '//' + location.hostname+':'+location.port+'/${project.artifactId}/TestRestApp/swagger.json'</value>
+                      </replacement>
+                  </replacements>
+              </configuration>
+          </plugin>
+
+          <plugin>
+              <groupId>com.github.os72</groupId>
+              <artifactId>protoc-jar-maven-plugin</artifactId>
+              <version>3.2.0.1</version>
+              <executions>
+                  <execution>
+                      <phase>generate-sources</phase>
+                      <goals>
+                          <goal>run</goal>
+                      </goals>
+                      <configuration>
+                          <!-- <includeDirectories> <include>src/main/protobuf</include> </includeDirectories> -->
+                          <inputDirectories>
+                              <include>src/main/resources</include>
+                          </inputDirectories>
+                          <!-- Create java files. And put them in the src/main/java directory. -->
+                          <outputTargets>
+                              <outputTarget>
+                                  <type>java</type>
+                                  <outputDirectory>src/main/java</outputDirectory>
+                              </outputTarget>
+                          </outputTargets>
+                      </configuration>
+                  </execution>
+              </executions>
+          </plugin>
+
       </plugins>
    </build>
-
 </project>

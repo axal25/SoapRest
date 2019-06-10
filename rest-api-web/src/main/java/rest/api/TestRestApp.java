@@ -1,9 +1,16 @@
 package rest.api;
 
 import io.swagger.jaxrs.config.BeanConfig;
+import model.rest.TestRestStudent;
+import rest.api.auth.UserEndpoint;
+import rest.api.auth.filter.JWTTokenNeededFilter;
+import rest.api.forms.FileUploadForm;
+import rest.api.proto.ProtoStudent;
+import rest.api.valid.ValidationExceptionMapper;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,6 +22,7 @@ public class TestRestApp extends Application {
     public TestRestApp() {
         init();
         singletons.add( new TestRestWS() );
+        singletons.add( new UserEndpoint() );
     }
 
     @Override
@@ -24,8 +32,33 @@ public class TestRestApp extends Application {
 
     @Override
     public Set<Class<?>> getClasses() {
+
+        /*****************************/
+        /************ v1 *************/
         HashSet hashSet = new HashSet<Class<?>>();
         hashSet.add( TestRestWS.class );
+        /************ v1 *************/
+        /*****************************/
+
+        /*****************************/
+        /************ v2 *************/
+        HashSet newHashSet = new HashSet<>(
+                Arrays.asList(
+                        TestRestWS.class,
+                        TestRestStudent.class,
+                        io.swagger.jaxrs.listing.ApiListingResource.class,
+                        io.swagger.jaxrs.listing.SwaggerSerializers.class,
+                        FileUploadForm.class,
+                        UserEndpoint.class,
+                        JWTTokenNeededFilter.class,
+                        ValidationExceptionMapper.class,
+                        ProtoStudent.class
+                )
+        );
+        hashSet = newHashSet;
+        /************ v2 *************/
+        /*****************************/
+
         return hashSet;
     }
 

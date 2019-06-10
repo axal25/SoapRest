@@ -1,6 +1,13 @@
 package model.rest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.*;
+import java.io.IOException;
 
 // @Data
 // @AllArgsConstructor
@@ -9,12 +16,21 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "TestRestStudent")
 @XmlType(name = "", propOrder = { "className", "name", "age", "courses" })
 public class TestRestStudent {
+
     @XmlElement
     public final static String className = "TestRestStudent";
+
+    @NotNull
+    @Size(min = 1, max = 40, message = "0 < " + className+".name.length > 41")
     @XmlElement
     private String name;
+
+    @Min(value = 1, message = className + ".age > 0")
+    @Max(value = 120, message = className + ".age < 121")
     @XmlElement
     private int age;
+
+    @NotNull
     @XmlElementWrapper(name = "courseS")
     @XmlElement(name = "course")
     private String[] courses;
@@ -90,6 +106,56 @@ public class TestRestStudent {
         }
     }
 
+    public static TestRestStudent getNewTestRestStudent( String jsonString ) {
+        final String functionName = "getNewTestRestStudent( String jsonString )";
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            TestRestStudent tmp_student = objectMapper.readValue(jsonString, TestRestStudent.class);
+            return tmp_student;
+        } catch (IOException e) {
+            System.out.println( MessageCollection.getException(className, functionName, e) );
+            return null;
+        }
+    }
+
+    public static String toJson( TestRestStudent testRestStudent ) {
+        final String functionName = "getJsonString( TestRestStudent testRestStudent )";
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            String jsonString = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString( testRestStudent );
+            return jsonString;
+        }
+        catch( Exception e ) {
+            System.out.println( MessageCollection.getException(className, functionName, e) );
+            return null;
+        }
+    }
+
+    public String toJson() {
+        final String functionName = "toJson()";
+        try {
+            String jsonString = toJson( this );
+            return jsonString;
+        }
+        catch( Exception e ) {
+            System.out.println( MessageCollection.getException(className, functionName, e) );
+            return null;
+        }
+    }
+
+    public static String toJson(java.util.List<TestRestStudent> listOfStudents) {
+        final String functionName = "toJson(List<TestRestStudent> listOfStudents)";
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            String jsonString = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString( listOfStudents );
+            return jsonString;
+        }
+        catch( Exception e ) {
+            System.out.println( MessageCollection.getException(className, functionName, e) );
+            return null;
+        }
+    }
+
     /*************************************/
     /************ OVERRIDDEN *************/
     /*************************************/
@@ -97,8 +163,7 @@ public class TestRestStudent {
     @Override
     public String toString() {
         final String functionName = "Overridden toString() method";
-        return className + " >>> " + functionName + " >>> " + className +
-                " { name: " + name + ", age: " + age + ", courses: {" + coursesToString( courses ) + "} }";
+        return className + " >>> " + functionName + " >>> " + className + ": " + toJson( this );
     }
 
     @Override
@@ -128,20 +193,6 @@ public class TestRestStudent {
     /*************************************/
     /********* HELPER FUNCTIONS **********/
     /*************************************/
-
-    public String coursesToString( String[] courses ) {
-        if( courses != null && courses.length > 0 ) {
-            String sCourses = "";
-            for (int i = 0; i < courses.length; i++) {
-                sCourses = sCourses + "\n" + courses[i];
-            }
-            return sCourses;
-        }
-        else {
-            if( courses != null && courses.length == 0 ) return " --- ";
-            return null;
-        }
-    }
 
     public static boolean equals(String s1, String s2) {
         if( s1 == s2 ) return true;

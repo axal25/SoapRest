@@ -98,14 +98,22 @@
                 <artifactId>rest-api-web</artifactId>
                 <version>${project.version}</version>
                 <type>war</type>
-                <scope>compile</scope>
             </dependency>
+
+            <dependency>
+                <groupId>soap.rest</groupId>
+                <artifactId>rest-api-web</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+                <classifier>classes</classifier>
+            </dependency>
+
             <dependency>
                 <groupId>soap.rest</groupId>
                 <artifactId>rest-connector-web</artifactId>
                 <version>${project.version}</version>
                 <type>war</type>
-                <scope>compile</scope>
+                <scope>test</scope>
             </dependency>
 
             <!-- JBoss distributes a complete set of Java EE 7 APIs including

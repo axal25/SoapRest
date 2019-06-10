@@ -38,39 +38,89 @@
          <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
       </license>
    </licenses>
+    <!-- edited -->
+    <properties>
+        <resteasy.version>3.7.0.Final</resteasy.version>
+        <resteasy.spec.jaxrs.api.groupId>org.jboss.spec.javax.ws.rs</resteasy.spec.jaxrs.api.groupId>
+        <resteasy.spec.jaxrs.api.artifactId>jboss-jaxrs-api_2.1_spec</resteasy.spec.jaxrs.api.artifactId>
+        <resteasy.spec.jaxrs.api.version>1.0.2.Final</resteasy.spec.jaxrs.api.version>
+        <resteasy.jaxrs.api.version>3.0.12.Final</resteasy.jaxrs.api.version>
+    </properties>
 
    <dependencies>
+       <!-- Dependency on the EJB module so we can use it's services if needed -->
+       <dependency>
+           <groupId>soap.rest</groupId>
+           <artifactId>soap-rest-model-ejb</artifactId>
+           <version>${project.version}</version>
+           <type>ejb</type>
+           <scope>provided</scope>
+       </dependency>
 
-      <!-- Dependency on the EJB module so we can use it's services if needed -->
+       <!-- How to use module-web dependency -->
+       <!-- https://eureka.ykyuen.info/2009/10/30/maven-dependency-on-jarwar-package/ -->
+       <!-- Same source: https://stackoverflow.com/questions/31020038/how-can-i-add-war-file-to-another-java-web-application-dependencies -->
+       <dependency>
+           <groupId>soap.rest</groupId>
+           <artifactId>rest-api-web</artifactId>
+           <version>${project.version}</version>
+           <type>jar</type>
+           <scope>provided</scope>
+           <classifier>classes</classifier>
+       </dependency>
 
-      <dependency>
-         <groupId>soap.rest</groupId>
-         <artifactId>soap-rest-model-ejb</artifactId>
-          <type>ejb</type>
-         <scope>provided</scope>
-      </dependency>
+       <dependency>
+           <groupId>org.jboss.resteasy</groupId>
+           <artifactId>resteasy-client</artifactId>
+           <version>${resteasy.version}</version>
+           <scope>provided</scope>
+       </dependency>
 
-      <dependency>
-         <groupId>soap.rest</groupId>
-         <artifactId>soap-connector-ejb</artifactId>
-         <type>ejb</type>
-         <scope>provided</scope>
-      </dependency>
+       <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-multipart-provider -->
+       <dependency>
+           <groupId>org.jboss.resteasy</groupId>
+           <artifactId>resteasy-multipart-provider</artifactId>
+           <version>${resteasy.version}</version>
+           <scope>compile</scope>
+           <exclusions>
+               <exclusion>
+                   <groupId>org.glassfish.jaxb</groupId>
+                   <artifactId>jaxb-runtime</artifactId>
+               </exclusion>
+           </exclusions>
+       </dependency>
 
-      <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss WildFly -->
-      <dependency>
-         <groupId>org.jboss.resteasy</groupId>
-         <artifactId>jaxrs-api</artifactId>
-         <scope>provided</scope>
-      </dependency>
+       <!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
+       <dependency>
+           <groupId>org.glassfish.jaxb</groupId>
+           <artifactId>jaxb-runtime</artifactId>
+           <version>2.3.1</version>
+           <scope>compile</scope>
+       </dependency>
 
-      <!-- Import the CDI API, we use provided scope as the API is included in JBoss WildFly -->
+       <!-- https://mvnrepository.com/artifact/org.jboss.spec.javax.ws.rs/jboss-jaxrs-api_2.1_spec -->
+       <dependency>
+           <groupId>${resteasy.spec.jaxrs.api.groupId}</groupId>
+           <artifactId>${resteasy.spec.jaxrs.api.artifactId}</artifactId>
+           <version>${resteasy.spec.jaxrs.api.version}</version>
+           <scope>provided</scope>
+       </dependency>
+
+       <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/jaxrs-api -->
+       <dependency>
+           <groupId>org.jboss.resteasy</groupId>
+           <artifactId>jaxrs-api</artifactId>
+           <version>3.0.12.Final</version>
+           <scope>provided</scope>
+       </dependency>
+
+       <!-- Import the CDI API, we use provided scope as the API is included in JBoss WildFly -->
       <dependency>
          <groupId>javax.enterprise</groupId>
          <artifactId>cdi-api</artifactId>
          <scope>provided</scope>
       </dependency>
-      
+
       <!-- Import the JSF API, we use provided scope as the API is included in JBoss WildFly -->
       <dependency>
          <groupId>org.jboss.spec.javax.faces</groupId>
@@ -100,23 +150,35 @@
            </exclusions>
        </dependency>
 
-       <!-- Jackson -->
+       <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jackson2-provider -->
+       <dependency>
+           <groupId>org.jboss.resteasy</groupId>
+           <artifactId>resteasy-jackson2-provider</artifactId>
+           <version>${resteasy.version}</version>
+           <scope>provided</scope>
+       </dependency>
+
+       <!--Jackson-->
+       <!--import com.fasterxml.jackson.databind.ObjectMapper;-->
        <dependency>
            <groupId>com.fasterxml.jackson.core</groupId>
            <artifactId>jackson-databind</artifactId>
-           <version>2.9.8.redhat-00004</version>
+           <version>2.9.8</version>
+           <scope>provided</scope>
        </dependency>
 
        <dependency>
            <groupId>com.fasterxml.jackson.core</groupId>
            <artifactId>jackson-core</artifactId>
-           <version>2.9.8.redhat-00004</version>
+           <version>2.9.8</version>
+           <scope>provided</scope>
        </dependency>
 
        <dependency>
            <groupId>com.fasterxml.jackson.core</groupId>
            <artifactId>jackson-annotations</artifactId>
-           <version>2.9.8.redhat-00004</version>
+           <version>2.9.8</version>
+           <scope>provided</scope>
        </dependency>
 
    </dependencies>

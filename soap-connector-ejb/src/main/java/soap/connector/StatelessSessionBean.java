@@ -2,25 +2,23 @@ package soap.connector;
 
 
 
+import org.jboss.annotation.security.SecurityDomain;
+import org.jboss.ws.api.annotation.WebContext;
+import org.junit.Before;
+import soap.api.SingletonSessionBean;
+import soap.connector.client.TestSoapClient;
+
 import javax.activation.DataHandler;
+import javax.annotation.security.PermitAll;
 import javax.ejb.DependsOn;
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
-
-import soap.api.SingletonSessionBean;
-import org.jboss.ws.api.annotation.WebContext;
-import org.jboss.annotation.security.SecurityDomain;
-import org.junit.Before;
-import soap.connector.client.TestSoapClient;
-
-import javax.annotation.security.PermitAll;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
-
-import java.awt.Image;
+import java.awt.*;
 
 @DependsOn(value = {"SingletonSessionEJB"}) // Not the same JAR?
 @Stateless(name = "StatelessSessionEJB")

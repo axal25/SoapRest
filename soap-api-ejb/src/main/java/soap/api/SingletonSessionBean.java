@@ -1,30 +1,31 @@
 package soap.api;
 
 import model.soap.Student;
+import org.jboss.annotation.security.SecurityDomain;
+import org.jboss.ws.api.annotation.WebContext;
+
+import javax.activation.DataHandler;
 import javax.annotation.PostConstruct;
 import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.Singleton;
-//import javax.ejb.Stateful;
 import javax.ejb.Startup;
+import javax.imageio.ImageIO;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlInlineBinaryData;
+import javax.xml.bind.annotation.XmlMimeType;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.security.PermitAll;
-import javax.annotation.security.RolesAllowed;
-
-import org.jboss.annotation.security.SecurityDomain;
-import org.jboss.ws.api.annotation.WebContext;
-
-import javax.imageio.ImageIO;
-import java.io.InputStream;
-import java.net.URL;
-
-import javax.activation.DataHandler;
+//import javax.ejb.Stateful;
 // import com.sun.xml.ws.developer.StreamingDataHandler;
 
 
