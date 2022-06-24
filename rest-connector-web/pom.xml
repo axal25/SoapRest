@@ -40,7 +40,7 @@
    </licenses>
     <!-- edited -->
     <properties>
-        <resteasy.version>3.7.0.Final</resteasy.version>
+        <resteasy.version>3.14.0.Final</resteasy.version>
         <resteasy.spec.jaxrs.api.groupId>org.jboss.spec.javax.ws.rs</resteasy.spec.jaxrs.api.groupId>
         <resteasy.spec.jaxrs.api.artifactId>jboss-jaxrs-api_2.1_spec</resteasy.spec.jaxrs.api.artifactId>
         <resteasy.spec.jaxrs.api.version>1.0.2.Final</resteasy.spec.jaxrs.api.version>
